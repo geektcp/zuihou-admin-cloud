@@ -13,7 +13,7 @@
 
  Date: 12/07/2020 23:48:30
 */
-
+SET GLOBAL innodb_large_prefix=ON;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
@@ -531,7 +531,7 @@ CREATE TABLE `c_common_area` (
   `id` bigint(20) NOT NULL COMMENT 'id',
   `tenant_code` varchar(20) DEFAULT '' COMMENT '租户编码',
   `code` varchar(64) NOT NULL DEFAULT '' COMMENT '编码',
-  `label` varchar(255) NOT NULL DEFAULT '' COMMENT '名称',
+  `label` varchar(64) NOT NULL DEFAULT '' COMMENT '名称',
   `full_name` varchar(255) DEFAULT '' COMMENT '全名',
   `sort_value` int(11) DEFAULT '1' COMMENT '排序',
   `longitude` varchar(255) DEFAULT '' COMMENT '经度',
@@ -692,9 +692,9 @@ CREATE TABLE `c_common_login_log` (
   `description` varchar(255) DEFAULT '' COMMENT '登录描述',
   `login_date` date DEFAULT NULL COMMENT '登录时间',
   `ua` varchar(500) DEFAULT '0' COMMENT '浏览器请求头',
-  `browser` varchar(255) DEFAULT NULL COMMENT '浏览器名称',
+  `browser` varchar(64) DEFAULT NULL COMMENT '浏览器名称',
   `browser_version` varchar(255) DEFAULT NULL COMMENT '浏览器版本',
-  `operating_system` varchar(255) DEFAULT NULL COMMENT '操作系统',
+  `operating_system` varchar(64) DEFAULT NULL COMMENT '操作系统',
   `location` varchar(50) DEFAULT '' COMMENT '登录地点',
   `create_time` datetime DEFAULT NULL,
   `create_user` bigint(20) DEFAULT NULL,
@@ -741,7 +741,7 @@ DROP TABLE IF EXISTS `c_common_parameter`;
 CREATE TABLE `c_common_parameter` (
   `id` bigint(20) NOT NULL,
   `tenant_code` varchar(20) DEFAULT '' COMMENT '租户编码',
-  `key_` varchar(255) NOT NULL DEFAULT '' COMMENT '参数键',
+  `key_` varchar(64) NOT NULL DEFAULT '' COMMENT '参数键',
   `name` varchar(255) NOT NULL DEFAULT '' COMMENT '参数名称',
   `value` varchar(255) NOT NULL COMMENT '参数值',
   `describe_` varchar(255) DEFAULT '' COMMENT '描述',

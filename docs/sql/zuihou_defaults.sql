@@ -13,7 +13,7 @@
 
  Date: 12/07/2020 23:46:10
 */
-
+SET GLOBAL innodb_large_prefix=ON;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
